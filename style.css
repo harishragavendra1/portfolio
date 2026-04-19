@@ -670,18 +670,18 @@ footer span { color: var(--v3); }
     display: block;
     margin: 0 auto;
 
-    width: 200px;
+    width: 300px;
   }
 }
 
 @media (max-width: 768px) {
   .about-layout {
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: left;
   }
 
   .sr-l {
     display: flex;
-    justify-content: center;
+    justify-content: left;
   }
 }
