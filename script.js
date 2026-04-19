@@ -154,8 +154,8 @@ function updateHorizontal() {
   const progress = Math.max(0, Math.min(1, scrolled / total));
   const maxTranslate = track.scrollWidth - window.innerWidth + 120;
   track.style.transform = `translateX(-${progress * maxTranslate}px)`;
-  const cardIdx = Math.min(9, Math.floor(progress * 10));
-  progEl.textContent = `0${cardIdx + 1} / 10`;
+  const cardIdx = Math.min(9, Math.floor(progress * 5));
+  progEl.textContent = `0${cardIdx + 1} / 5`;
 }
 window.addEventListener('scroll', updateHorizontal, { passive: true });
 updateHorizontal();
@@ -165,7 +165,7 @@ updateHorizontal();
 // ============================================
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('stuck', window.scrollY > 60);
+  nav.classList.toggle('stuck', window.scrollY > 80);
 }, { passive: true });
 
 // ============================================
