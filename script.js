@@ -148,38 +148,15 @@ const track    = document.getElementById('worksTrack');
 const progEl   = document.getElementById('workProgress');
 
 function updateHorizontal() {
-
-  if (window.innerWidth <= 768) {
-    track.style.transform = "none";
-    return;
-  }
-
   const rect = stickyEl.getBoundingClientRect();
   const total = stickyEl.offsetHeight - window.innerHeight;
-
-  const scrolled = Math.min(Math.max(-rect.top, 0), total);
-  const progress = total > 0 ? scrolled / total : 0;
-
-  // ✅ FIX START
-  const styles = getComputedStyle(track);
-  const gap = parseInt(styles.gap) || 0;
-
-  const maxTranslate = Math.max(
-    0,
-    track.scrollWidth - window.innerWidth + gap
-  );
-  // ✅ FIX END
-
+  const scrolled = -rect.top;
+  const progress = Math.max(0, Math.min(1, scrolled / total));
+  const maxTranslate = track.scrollWidth - window.innerWidth + 120;
   track.style.transform = `translateX(-${progress * maxTranslate}px)`;
-
-  const totalCards = track.children.length;
-  const cardIdx = Math.min(totalCards - 1, Math.floor(progress * totalCards));
-
-  progEl.textContent = `${String(cardIdx + 1).padStart(2, "0")} / ${totalCards}`;
+  const cardIdx = Math.min(6, Math.floor(progress * 5));
+  progEl.textContent = `0${cardIdx + 1} / 5`;
 }
-
-window.addEventListener('scroll', updateHorizontal, { passive: true });
-updateHorizontal();
 window.addEventListener('scroll', updateHorizontal, { passive: true });
 updateHorizontal();
 
