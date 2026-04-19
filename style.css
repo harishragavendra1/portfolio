@@ -647,7 +647,8 @@ footer span { color: var(--v3); }
   .nav-links { display: none; }
   .about-layout { grid-template-columns: 1fr; gap: 32px; }
   .about-number { font-size: 8rem; text-align: center; }
-  .process-steps { grid-template-columns: repeat(2,1fr); gap: 40px; }
+  .process-steps { grid-template-columns: 1fr;
+    gap: 24px; }
   .process-steps::before { display: none; }
   .form-row { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 8px; text-align: center; }
@@ -657,5 +658,5 @@ footer span { color: var(--v3); }
 @media(max-width:600px){
   section, #services, #skills, #process, #testimonials, #creative, #contact { padding: 80px 5%; }
   .work-card { width: 300px; }
-  .services-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
+  .services-grid, .skills-grid { grid-template-columns: 1fr; }
 }
